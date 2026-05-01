@@ -1,0 +1,192 @@
+@font-face {
+    font-family: "conthic";
+    /* Give your font a name */
+    src: url("fonts/CookConthic.ttf");
+    /* Modern standard */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    /* Ensures text remains visible during loading */
+}
+
+@font-face {
+    font-family: "soge";
+    src: url("fonts/Soge-Regular.ttf");
+}
+
+@font-face {
+    font-family: "ageo";
+    src: url("fonts/Ageo-Regular.ttf")
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #464646;
+    padding: 40px;
+    background-image: url("images/filmdust.gif");
+    color: white;
+    background-blend-mode: multiply;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: "conthic", "arial";
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.ghost-title {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    --before-x: 0px;
+    --after-x: 0px;
+}
+
+.ghost-title:hover {
+    color: rgb(255, 255, 255)
+}
+
+.ghost-title::before,
+.ghost-title::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.ghost-title::before {
+    color: red;
+    transform: translateX(var(--before-x));
+}
+
+.ghost-title::after {
+    color: blue;
+    transform: translateX(var(--after-x));
+}
+
+.ghost-title.is-glitching::before,
+.ghost-title.is-glitching::after {
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    clear:both;
+}
+
+.nav-buttons {
+    margin-top: 40px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid black;
+    margin-right: 10px;
+    color: black;
+}
+
+.nav-buttons a:hover {
+    background-color: black;
+    color: white;
+}
+
+.toc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toc a {
+    text-decoration: none;
+    /* removes underline */
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    width: fit-content;
+    font-family: "conthic", "arial";
+}
+
+.toc a:hover {
+    background-color: black;
+    color: red;
+}
+
+a {
+    font-family: "soge", "arial";
+    font-size: 80px;
+}
+
+.container {
+    text-align: right;
+}
+
+
+.next {
+    margin-left: auto;
+    color: rgb(255, 255, 255);
+}
+
+.back {
+    margin-right: auto;
+    color: rgb(255, 255, 255);
+}
+
+p {
+    font-family: "ageo", "ariel";
+    font-size: 15pt;
+}
+
+.cover-img {
+    mask-image: radial-gradient(circle, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 100%);
+    width: 1080px; height: auto;
+    align-content: center;
+    display:flex;
+    justify-content: center;
+}
+
+.sub-img-left {
+    width: auto;
+    height: 80px;
+    margin-bottom: 20%;
+    float: left;
+    transform: perspective(350px) rotateY(20deg);
+}
+
+.sub-img-right {
+    float: right;
+    width: 500px;
+    margin-bottom: 5%;
+    transform: perspective(350px) rotateY(-18deg);
+}
+
+.flicker-glow {
+     width: 450px;
+    transition: box-shadow 0.08s linear;
+}
+
+.subhead {
+    font-family: "conthic", "arial";
+    font-size: 50px;
+    margin-top: 5%;
+    margin-bottom: 0%;
+}
+
+.p-right {
+    margin-right: 35%;
+    margin-left: 30%;
+
+}
+
+.p-left {
+    margin-left: 35%;
+    margin-right: 30%
+}
