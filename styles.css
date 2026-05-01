@@ -139,37 +139,52 @@ a {
     color: rgb(255, 255, 255);
 }
 
-p {
-    font-family: "ageo", "ariel";
-    font-size: 15pt;
-}
-
 .cover-img {
+    display: block;
     mask-image: radial-gradient(circle, black 40%, transparent 100%);
     -webkit-mask-image: radial-gradient(circle, black 40%, transparent 100%);
     width: 1080px; height: auto;
     align-content: center;
     display:flex;
     justify-content: center;
+
+}
+
+.sub-img {
+    z-index: -100;
+    position: relative;
+
+    width: auto;
+
+    img {
+        display: block;
+        margin: 10px;
+    };
+
+    div {
+        position: absolute;
+        inset-inline-start: 0px;
+        inset-block-start: 0px;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+
+        z-index: -50;
+    }
 }
 
 .sub-img-left {
-    width: auto;
-    height: 80px;
-    margin-bottom: 20%;
-    float: left;
     transform: perspective(350px) rotateY(20deg);
+    float: left;
 }
 
 .sub-img-right {
+    transform: perspective(350px) rotateY(-20deg);
     float: right;
-    width: 500px;
-    margin-bottom: 5%;
-    transform: perspective(350px) rotateY(-18deg);
 }
 
 .flicker-glow {
-     width: 450px;
+    width: 450px;
     transition: box-shadow 0.08s linear;
 }
 
@@ -178,6 +193,11 @@ p {
     font-size: 50px;
     margin-top: 5%;
     margin-bottom: 0%;
+}
+
+p {
+    font-family: "ageo", "ariel";
+    font-size: 15pt;
 }
 
 .p-right {

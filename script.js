@@ -54,20 +54,34 @@ console.log("hi");
 const images = document.querySelectorAll(".flicker-glow");
 
 images.forEach((image) => {
+  const parent = image.parentElement;
+  const newDiv = document.createElement("div");
+  parent.insertBefore(newDiv, image);
+  newDiv.style.backgroundImage = "url(" + image.src + ")";
+  newDiv.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+  newDiv.style.backgroundBlendMode = "lighten";
+  let lightness = Math.random();
 
-    function flickerGlow() {
+  function flickerGlow() {
+    // Vary the lightness smoothly by averaging its old value with a random value
+    lightness = (lightness + Math.random()) / 2;
 
-        const blur = Math.random() * 25 + 10;
-        const opacity = Math.random() * 0.6 + 0.4;
+    // We want all the values here to be correlated
+    // so the light has a clear effect
+    const blur = lightness * 25 + 10;
+    const imageOpacity = 1 - lightness * 0.4;
+    const backgroundOpacity = lightness * 0.2;
 
-        image.style.boxShadow = `
-            0 0 ${blur}px rgba(255,0,80,${opacity}),
-            0 0 ${blur * 2}px rgba(22, 153, 235,${opacity * 0.7})
-        `;
+    // Apply the effect
+    newDiv.style.filter = `blur(${blur}px)`
+    newDiv.style.backgroundColor = `rgba(255, 255, 255, ${backgroundOpacity})`;
+    image.style.opacity = imageOpacity;
 
-        setTimeout(flickerGlow, Math.random() * 150 + 50);
-    }
+    // We want flickers to happen intermittently, so we make
+    // the timeout proportional to dark-ness
+    setTimeout(flickerGlow, (1 - lightness) * 550 + 5);
+  }
 
-    flickerGlow();
+  flickerGlow();
 
 });
