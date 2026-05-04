@@ -1,22 +1,22 @@
-window.verbose=true;
+window.verbose = true;
 console.log("something");
 
 let numButtonClicks = 0;
 function buttonClicked() {
-    numButtonClicks = numButtonClicks + 1;
-    document.getElementById("mainDiv").textContent =
-        "Button Clicked times: " + numButtonClicks;
-    console.log(numButtonClicks);
+  numButtonClicks = numButtonClicks + 1;
+  document.getElementById("mainDiv").textContent =
+    "Button Clicked times: " + numButtonClicks;
+  console.log(numButtonClicks);
 }
 
 const ghostTitleList = document.querySelectorAll('.ghost-title');
 console.log(ghostTitleList)
 
 
-for(let i = 0; i < ghostTitleList.length; i = i + 1) {
+for (let i = 0; i < ghostTitleList.length; i = i + 1) {
   let ghostTitle = ghostTitleList[i];
   console.log(ghostTitle)
-  
+
   ghostTitle.addEventListener('mouseenter', () => {
     console.log("mouse-enter");
     ghostTitle.classList.add('is-glitching');

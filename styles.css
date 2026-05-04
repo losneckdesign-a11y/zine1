@@ -77,7 +77,7 @@ h1 {
 .nav {
     display: flex;
     justify-content: space-between;
-    clear:both;
+    clear: both;
 }
 
 .nav-buttons {
@@ -100,23 +100,68 @@ h1 {
 .toc {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .toc a {
     text-decoration: none;
-    /* removes underline */
     color: rgb(255, 255, 255);
     font-size: 18px;
-    padding: 10px;
-    border: 1px solid rgb(255, 255, 255);
-    width: fit-content;
+    padding: 12px 4px 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     font-family: "conthic", "arial";
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.2s, padding-left 0.2s;
+}
+
+.toc a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: rgb(255, 133, 133);
+    transform: scaleY(0);
+    transition: transform 0.22s ease;
+    transform-origin: bottom;
 }
 
 .toc a:hover {
-    background-color: black;
-    color: red;
+    color: rgb(255, 133, 133);
+    padding-left: 10px;
+}
+
+.toc a:hover::before {
+    transform: scaleY(1);
+}
+
+.toc a .num {
+    font-size: 12px;
+    color: rgb(133, 166, 255);
+    min-width: 22px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.toc a:hover .num {
+    opacity: 1;
+}
+
+.toc a.active {
+    color: rgb(133, 166, 255);
+    padding-left: 10px;
+}
+
+.toc a.active::before {
+    transform: scaleY(1);
+}
+
+.toc a.active .num {
+    opacity: 1;
 }
 
 a {
@@ -141,12 +186,12 @@ a {
 
 .cover-img {
     display: block;
+    width: 1080px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
     mask-image: radial-gradient(circle, black 40%, transparent 100%);
     -webkit-mask-image: radial-gradient(circle, black 40%, transparent 100%);
-    width: 1080px; height: auto;
-    align-content: center;
-    display:flex;
-    justify-content: center;
 
 }
 
@@ -159,7 +204,9 @@ a {
     img {
         display: block;
         margin: 10px;
-    };
+    }
+
+    ;
 
     div {
         position: absolute;
