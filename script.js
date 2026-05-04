@@ -85,3 +85,13 @@ images.forEach((image) => {
   flickerGlow();
 
 });
+
+function jumpscare() {
+  console.log("gottem")
+  const js = document.querySelector(".jumpscare");
+  if (js === null) return;
+  js.style.zIndex = "1000";
+  js.style.display = "block";
+
+  setTimeout(() => js.style.display = "none", 200);
+}
