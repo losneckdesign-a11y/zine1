@@ -185,14 +185,15 @@ a {
 }
 
 .cover-img {
-    display: block;
-    width: 1080px;
+     display: block;
+    width: 100vw;
     height: 500px;
     object-fit: cover;
     object-position: center;
     mask-image: radial-gradient(circle, black 40%, transparent 100%);
     -webkit-mask-image: radial-gradient(circle, black 40%, transparent 100%);
-
+    margin-left: calc(-40px);
+    margin-right: calc(-40px);
 }
 
 .sub-img {
