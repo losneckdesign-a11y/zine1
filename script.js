@@ -86,15 +86,12 @@ images.forEach((image) => {
 
 });
 
+const audio = document.getElementById("jumpscareSound");
+const js = document.querySelector(".jumpscare");
 function jumpscare() {
-    try {
-        document.getElementById("jumpscareSound").play();
-    } catch (e) {}
-
-    console.log("gottem")
-    const js = document.querySelector(".jumpscare");
-    if (js === null) return;
-    js.style.zIndex = "1000";
-    js.style.display = "block";
-    setTimeout(() => js.style.display = "none", 200);
+  audio.play()
+  setTimeout(() => {
+    js.style.display = "block"
+    setTimeout(() => js.style.display = "none", 500);
+  }, 700);
 }
